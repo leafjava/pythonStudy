@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+# import pymysql
+# pymysql.install_as_MySQLdb()
+
 
 from pathlib import Path
 
@@ -37,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account'
+    'account',
+    'app01'
 ]
 
 MIDDLEWARE = [
@@ -73,11 +77,21 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+  'default':{
+    'ENGINE':'django.db.backends.mysql',
+    'NAME':'django_demo',
+    'HOST':'127.0.0.1',
+    'USER':'admin',
+    'PASSWORD':'123456',
+    'PORT': '3306',
+  }
 }
 
 
