@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  <h1>文章列表</h1>
+  <h2>作者:{{ author|upper }} 文章数量:{{ number }}</h2>
+  <ul>
+    <li>{{ article_list.0 }}</li>
+    <li>{{ article_list.1|truncatechars:10 }}</li>
+    <li>{{ article_list.2 }}</li>
+  </ul>
+  <p>{{ info.name|upper }} 年龄 {{info.age}} 性别 {{ gender|default:'未知' }}</p>
+  <p>喜欢的编程语言:{{info.programming_language|random}}</p>
+  {%  include 'page.html'%}
+
+  {% for article in article_list %}
+  <ul>
+    <li class="{% cycle 'row1' 'row2' %}">{{ article }}
+      <!-- {{forloop.counter}} -->
+      {% if forloop.counter == 1 %}
+        置顶
+      {% endif %}
+    </li>
+  </ul>
+  {% empty %}
+  <p>暂无数据</p>
+  {% endfor %}
+
+
+  {% for key,value in info.items %}
+    <p>{{key}} : {{value}}</p>
+  {% endfor %}
+
+  {% if info.age < 18 %}
+    未成年
+  {% elif 18 <= info.age and info.age  <= 25 %}
+    青年才俊
+  {% else %}
+    潜力股
+  {% endif %}
+
+
+  ----------------------
+  {{content|safe}}
+
+
+  {%  include 'page.html'%}
+
+
+
+  {% endblock %}
