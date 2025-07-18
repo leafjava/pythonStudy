@@ -9,9 +9,6 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-# import pymysql
-# pymysql.install_as_MySQLdb()
-
 
 from pathlib import Path
 
@@ -23,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3=$075@ei_sdt$lx@hd7uo+s&%aq^t7w))#*rp%v1+a)o7g7&9'
+SECRET_KEY = 'django-insecure-7$$_(7&*nyi#9b&jy71!hp_cjxwjvau8)#wp3%)q(r4u+t6q#m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,6 +80,7 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
   'default':{
     'ENGINE':'django.db.backends.mysql',
